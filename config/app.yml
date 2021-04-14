@@ -9,4 +9,4 @@ all:
     basePath: '/js/ckeditor/'
   default_meta_title: 'Cờ bạc bịp'
   phone_number: "0354926551";
-  domain_web_root: "http://localhost:8083"
+  domain_web_root: "http://localhost:8084"

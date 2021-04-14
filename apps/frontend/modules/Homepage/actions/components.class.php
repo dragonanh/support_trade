@@ -10,30 +10,5 @@
  */
 class HomepageComponents extends sfComponents
 {
-  public function executeListProductCategory(sfWebRequest $request){
-    $listCategory = CategoryTable::getListActiveCategory();
-    $results = array();
-    if(count($listCategory)){
-      foreach ($listCategory as $category){
-        $listProduct = ProductTable::getListProductByCategory($category['id'], 20);
-        $results[] = array(
-          'id' => $category['id'],
-          'name' => $category['name'],
-          'slug' => $category['slug'],
-          'list_product' => $listProduct
-        );
-      }
-    }
-    $this->results = $results;
-  }
 
-  public function executeRecentlyViewed(){
-    $cookie_name = "ProductRecentlyViewed";
-    $this->listProduct = isset($_COOKIE[$cookie_name]) ? json_decode($_COOKIE[$cookie_name], true) : [];
-  }
-
-  public function executeBanner(){
-    $this->banners = BannerTable::getBanner();
-  }
-  
 }
