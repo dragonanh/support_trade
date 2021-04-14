@@ -1,0 +1,81 @@
+body, button, input, textarea{
+    font-family: Roboto,"Source Sans Pro", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+.single-product .woocommerce-tabs #tab-description > h2{
+    border: none;
+}
+.cart-wrapper > form{
+    background-color: #f9f9f9;
+}
+table.cart thead th{
+    font-weight: 500;
+}
+.cart-collaterals .cart_totals .shop_table tr:last-child td, .cart-collaterals .cart_totals .shop_table tr:last-child th{
+    border-top: none;
+    border-bottom: 1px solid #bebebe;
+}
+.quantity .btnAddToCart{
+    vertical-align: top;
+    padding: 9px
+}
+.shop-sidebar .custom-slick-nav{
+    margin-bottom: 15px
+}
+.num-search-result{
+    color: #f5363e
+}
+.site-footer .footer-widgets-block{
+    padding-top: 0;
+    margin-bottom: 0
+}
+.contact-payment-wrap > div{
+    flex-grow: 1;
+    width: 33%;
+    padding: 10px
+}
+.site-footer .footer-widgets-block .media-title{
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #444
+}
+.site-footer .footer-widgets-block .is-divider{
+    background-color: rgba(84, 103, 143, 0.3);
+    width: 100%;
+    max-width: 30px;
+    height: 3px;
+    margin-bottom: 10px
+}
+.footer-contact a{
+    color: #fff !important;
+}
+.site-footer .before-footer-wrap{
+    padding-top: 1em
+}
+.home-slider .banner_image{
+    height: inherit
+}
+.site-content .home-v3-slider .slider-1 img{
+    left: 41.9%
+}
+.new-arrival-carousel .product img, #grid .product img{
+    height: 220px
+}
+
+#zalo {
+    top: 62%;
+    color: #fff;
+    font-size: 2.25rem;
+    height: 100px;
+    opacity: 1;
+    text-align: center;
+    width: 100px;
+    line-height: 100%;
+    right: 0;
+    position: fixed;
+    z-index: 1001;
+}
+
+@media (max-width: 768px) {
+    .features-list {display: none }
+    .new-arrival-carousel .product img, #grid .product img {height: 120px }
+}

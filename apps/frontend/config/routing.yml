@@ -1,0 +1,52 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+list_product_category:
+  url: /danh-muc/:slug
+  param: { module: Product, action: listProduct}
+detail_product:
+  url: /chi-tiet-san-pham/:slug
+  param: { module: Product, action: index}
+list_article:
+  url: /tin-tuc
+  param: { module: Article, action: listArticle}
+article_detail:
+  url: /chi-tiet-bai-viet/:slug
+  param: { module: Article, action: index}
+search_product:
+  url: /tim-kiem
+  param: { module: PageSearch, action: index}
+cart:
+  url: /gio-hang
+  param: { module: Cart, action: index}
+checkout:
+  url: /thanh-toan
+  param: { module: Cart, action: checkout}
+orderReceived:
+  url: /thanh-toan-thanh-cong
+  param: { module: Cart, action: orderReceived}
+
+####################################### AJAX ########################################
+ajax_add_to_cart:
+  url: /ajax/them-vao-gio-hang/:id/:act
+  param: { module: Cart, action: ajaxAddToCart}
+ajax_remove_item_from_cart:
+  url: /ajax/remove-item-from-cart/:id
+  param: { module: Cart, action: ajaxRemoveItem}
+####################################### END AJAX ####################################
+
+homepage:
+  url:   /
+  param: { module: Homepage, action: index }
+error404:
+  url:   /lien-ket-khong-ton-tai
+  param: { module: Common, action: error404 }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*
