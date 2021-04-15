@@ -7,18 +7,21 @@
         <form class="form">
             <div class="form-control">
                 <label class="form-label">TÀI KHOẢN</label>
-                <input type="text" class="form-field" name="username" />
+                <input id="inpUsername" id-error="inpUsernameMessage" type="text" class="form-field" name="username" />
+                <div id="inpUsernameMessage" class="form-error"></div>
             </div>
             <div class="form-control">
                 <label class="form-label">MẬT KHẨU</label>
-                <input type="text" class="form-field" name="password" />
+                <input id="inpPassword" type="password" class="form-field" name="password" />
+                <div id="inpPasswordMessage" class="form-error"></div>
             </div>
             <div class="form-control">
                 <label class="form-label">Mã phần mềm - Nhận tại hotline/Zalo: 0985.20.8888</label>
-                <input type="text" class="form-field" name="password" />
+                <input id="inpCode" type="text" class="form-field" name="code" />
+                <div id="inpCodeMessage" class="form-error"></div>
             </div>
             <div class="form-actions">
-                <button class="btn-login" type="submit" name="btn_login">Đăng nhập</button>
+                <button class="btn-login" type="button" onclick="openPopup()" name="btn_login">Đăng nhập</button>
             </div>
         </form>
     </div>

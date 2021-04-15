@@ -12,11 +12,35 @@
 
     <?php include_stylesheets() ?>
     <link href="<?php echo sfConfig::get("app_domain_web_root")?>/css/roboto.css" media="all" type="text/css" rel="stylesheet"/>
+    <link href="<?php echo sfConfig::get("app_domain_web_root")?>/css/frontend/popup.css?v=1" media="all" type="text/css" rel="stylesheet"/>
+    <link href="<?php echo sfConfig::get("app_domain_web_root")?>/css/frontend/hotline.css?v=1" media="all" type="text/css" rel="stylesheet"/>
     <link href="<?php echo sfConfig::get("app_domain_web_root")?>/css/frontend/coder_update.css?v=1" media="all" type="text/css" rel="stylesheet"/>
   </head>
   <body>
 
     <?php echo $sf_content ?>
+
+    <div class="popup-container">
+        <input type="checkbox" id="login-popup">
+        <div class="popup">
+            <label for="login-popup" class="transparent-label"></label>
+            <div class="popup-inner">
+                <div class="popup-title">
+                    <h6>Đăng nhập hệ thống</h6>
+                </div>
+                <div class="popup-content">
+                    <div style="padding-left: 10px">
+                        <span>rendering video...</span>
+                        <span id="processing"></span>
+                    </div>
+
+                    <div class="meter">
+                        <span id="progress-bar" style="width: 0"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <?php include_javascripts() ?>
     <script type="text/javascript" src="<?php echo sfConfig::get("app_domain_web_root")?>/js/custom.js"></script>
