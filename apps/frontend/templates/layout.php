@@ -43,6 +43,7 @@
     </div>
 
     <?php include_javascripts() ?>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lem1HcUAAAAAJhnk_fpkwiHnVVXYjnRw9_65bh7"></script>
     <script type="text/javascript" src="<?php echo sfConfig::get("app_domain_web_root")?>/js/custom.js"></script>
   </body>
 </html>

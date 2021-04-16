@@ -1,30 +1,13 @@
-document.addEventListener("keyup", function (e) {
-    e.target.nextElementSibling.innerText = "";
-})
+onload();
 
-var i = 0;
-function move() {
-    if (i === 0) {
-        i = 1;
-        var elem = document.getElementById("progress-bar");
-        var width = 1;
-        var id = setInterval(frame, 50);
-        function frame() {
-            if (width >= 100) {
-                clearInterval(id);
-                i = 0;
-                closePopup();
-                setMessage("inpCodeMessage", "Mã phần mềm không chính xác");
-            } else {
-                width++;
-                elem.style.width = width + "%";
-                document.getElementById("processing").innerText = width + "%";
-            }
-        }
-    }
-}
+document.querySelectorAll('.form-field').forEach(item => {
+    item.addEventListener('keyup', event => {
+        event.target.nextElementSibling.innerText = "";
+    })
+});
 
-function openPopup() {
+function validate(event) {
+    event.preventDefault();
     var username = document.getElementById("inpUsername").value;
     var password = document.getElementById("inpPassword").value;
     var code = document.getElementById("inpCode").value;
@@ -42,10 +25,70 @@ function openPopup() {
         return false;
     }
 
+    grecaptcha.execute();
+}
+
+function onload() {
+    var element = document.getElementById('btn-submit');
+    element.onclick = validate;
+  }
+
+function login(token){
+    var obj = document.getElementById("form-login");
+    var url = obj.getAttribute("action");
+
+    var username = document.getElementById("inpUsername").value;
+    var password = document.getElementById("inpPassword").value;
+    var code = document.getElementById("inpCode").value;
+
+    resetMessage();
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.responseText);
+            if(response.errorCode === 0){
+                openPopup();
+            }else{
+                setMessage("inpUsernameMessage", response.data.usernameMessage);
+                setMessage("inpPasswordMessage", response.data.passwordMessage);
+                setMessage("inpCodeMessage", response.data.codeMessage);
+            }
+        }
+    };
+    xhttp.open("POST", url, true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("username="+username+"&password="+password+"&code="+code+"&token="+token);
+}
+
+function resetMessage(){
     setMessage("inpUsernameMessage", "");
     setMessage("inpPasswordMessage", "");
     setMessage("inpCodeMessage", "");
+}
 
+var i = 0;
+function move() {
+    if (i === 0) {
+        i = 1;
+        var elem = document.getElementById("progress-bar");
+        var width = 1;
+        var id = setInterval(frame, 50);
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+                i = 0;
+                closePopup();
+            } else {
+                width++;
+                elem.style.width = width + "%";
+                document.getElementById("processing").innerText = width + "%";
+            }
+        }
+    }
+}
+
+function openPopup() {
     document.getElementById("login-popup").checked = true;
     move();
 }
